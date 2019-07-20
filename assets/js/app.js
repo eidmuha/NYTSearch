@@ -29,8 +29,9 @@ function NYAPICall(title, startYear, endYear) {
     method: "GET"
   }).then(function(response) {
     var results = response.response.docs;
+    var endNumber = $("#exampleFormControlSelect1").val();
 
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < endNumber; i++) {
       var url = results[i].web_url;
       var titile = results[i].snippet;
       var details = results[i].lead_paragraph;
