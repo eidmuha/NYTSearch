@@ -3,12 +3,12 @@
 function NYAPICall(title, startYear, endYear) {
   var apiKey = "CV4eBGk9tBKkxXZ3NcAeOPzq51NT5ifM";
   // Convert parameters, if found, for string concatenation. If not, make empty string
-  if (startYear === undefined) {
+  if (startYear === undefined || startYear === "") {
     startYear = "";
   } else {
     startYear = "&begin_date=" + startYear + "0101";
   }
-  if (endYear === undefined) {
+  if (endYear === undefined || endYear === "") {
     endYear = "";
   } else {
     endYear = "&end_date=" + endYear + "0101";
@@ -53,6 +53,9 @@ function NYAPICall(title, startYear, endYear) {
 
 $("#search").on("click", function(event) {
   event.preventDefault();
-  console.log("clickd");
-  NYAPICall();
+  var search = $("#exampleFormControlInput1").val();
+  var startyear = $("#startyearinput").val();
+  var endyear = $("#endyearinput").val();
+  // console.log("clickd");
+  NYAPICall(search, startyear, endyear);
 });
